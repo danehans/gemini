@@ -1,0 +1,20 @@
+#!/bin/bash
+#
+# Script to configure gemini-master
+#
+set -x
+set -e
+
+NODE_NAMES=${NODE_NAMES:-}
+NODE_MACS=${NODE_MACS:-}
+NODE_IPS=${NODE_IPS:-}
+
+gen_hosts() {
+  for n in ${!NODE_NAMES[*]}; do 
+    echo "- ${NODE_NAMES[$index]},${NODE_MACS[$index]},${NODE_IPS[$index]}"
+  done
+}
+
+#dhcp_hosts=gen_hosts
+(gen_hosts)
+#$dhcp_hosts

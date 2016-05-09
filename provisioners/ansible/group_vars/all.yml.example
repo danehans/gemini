@@ -1,0 +1,27 @@
+---
+# Account name used to SSH to the gemini-master node.
+# The user must be able to use sudo without asking
+# for password unless ansible_sudo_pass is set
+ansible_ssh_user: my_gemini_master_user
+
+# DNS Domain to use for PXE nodes
+dnsmasq_domain: 'example.com'
+
+# IP address range to use for assigning to PXE-booted nodes
+dnsmasq_dhcp_ranges:
+  - start_addr: '10.10.10.10'
+    end_addr: '10.30.118.100'
+    lease_time: '8h'
+
+# Set specific IP's for hosts within the dnsmasq_dhcp_ranges above
+dnsmasq_dhcp_hosts:
+  - AA:BB:44:33:22:11,10.10.10.10,my_cluster_node
+
+# repeat:  - name:/mac:/ip: for additional hosts
+
+# Gateway IP for PXE-booted nodes
+dnsmasq_option_router: '10.10.10.1'
+
+# RSA key of your gemini-master node.
+cloudinit_ssh_authorized_keys: >
+    ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQD9bL4dz/rsdjzBBYTAG38oqCqZPLqh0IigARKNEPGXXZgw+K+yVlaNS3FnvO1l3a6pWFQRPp/x9TMGPpMMxIJVpiflXdCTgQqmwcmFdYNClGe5h0jAsUGtrXcur76UBB9RZvYKxkuAm2cy1SYw/yQuVmPQLmSSTggUK6OXN8yIC/9MOvLkS8qUBJnhcqCxwpbiEcsGYmFepoU9HAZBuiVIDNNvoSP7MTqOvS4RMvUXpTKB4d6BIf23V1621cekxGO8dKNk8IQ28dXg/Ld4W02cgGE2ssGVMW7nr8VnK9VzNLBaZveebTbEjBeTFCuBmQyrT41Pr7blwsSdH2tguzhj root@gem-master01
