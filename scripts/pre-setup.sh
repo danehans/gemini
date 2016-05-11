@@ -1,6 +1,6 @@
 #!/bin/bash
 
-base_dir=${BASE_DIR:-~/gemini/provisioners/ansible/roles}
+base_dir=${BASE_DIR:-~/gemini-ansible/roles}
 contrib_base_dir=${CONTRIB_BASE_DIR:-~}
 
 echo "-> Setting Up SSH"

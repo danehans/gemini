@@ -29,14 +29,14 @@ rpm -iUvh http://dl.fedoraproject.org/pub/epel/7/x86_64/e/epel-release-7-5.noarc
 yum -y install ansible git ipmitool
 ```
 
-Clone the Gemini repository and change to the ```~/gemini/provisioners/ansible/``` directory:
+Clone the Gemini repository and change to the ```~/gemini-ansible/``` directory:
 ```
-git clone https://github.com/gemini-project/gemini.git && cd ~/gemini/provisioners/ansible/
+git clone https://github.com/gemini-project/gemini-ansible.git && cd ~/gemini-ansible/
 ```
 
 Run the pre-setup script to populate the gemini ansible roles:
 ```
-./pre-setup.sh
+./scripts/pre-setup.sh
 ```
 
 Modify ```group_vars/all.yml``` with the specifics of your deployment environment. You
@@ -52,7 +52,7 @@ sed -i 's/gem-master01/${YOUR_GEMINI_MASTER_HOSTNAME}/' gemini-master
 
 Run the setup script to deploy the Gemini Master node:
 ```
-./setup.sh
+./scripts/setup.sh
 ```
 
 The setup script should complete with a successful Ansible playbook run similar to this:
